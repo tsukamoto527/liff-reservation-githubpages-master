@@ -20,14 +20,20 @@ $(function () {
     // 送信
     $('form').submit(function () {
         var date = $('input[name="date"]').val();
-        var number = $('input[name="number"]:checked').val();
-        var names = '';
-        $('#form-name').children().each(function (i, elm) {
-            names += $(elm).val() + '、';
-        })
-        names = names.slice(0, -1);
+        
+        //numberを無効化し、Cakesizeを有効
+        //var number = $('input[name="number"]:checked').val();
+        var cakeSize = $('input[name="cakeSize"]').val();
+        
+        //namesを無効化
+        // var names = '';
+        // $('#form-name').children().each(function (i, elm) {
+        //     names += $(elm).val() + '、';
+        // })
+        // names = names.slice(0, -1);
 
-        var msg = `【予約内容】\n希望日：${date}\n人数：${number}\n氏名：${names}`;
+        //var msg = `【予約内容】\n希望日：${date}\n人数：${number}\n氏名：${names}`;
+        var msg = `【予約内容】\n希望日：${date}\n人数：${cakeSize}`;
         sendText(msg);
 
         return false;
